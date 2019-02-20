@@ -1,0 +1,102 @@
+.signUp{
+    height: 800px;
+    margin-top: 60px;
+    .signUp-box{
+        margin-top: 40px;
+        height: 700px;
+        h2{
+            margin: 15px auto;
+            text-align: center;
+            text-transform: uppercase;
+        }
+        color: black;
+        position: absolute;
+        top: 60%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 700px;
+        height: 750px;
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 10px;
+        animation: fadeInDown 1s forwards linear;
+        -webkit-animation: fadeInDown 1s forwards linear;
+        .form-alert{
+            font-weight: 600;
+        }
+        .form-input{
+            width: 80%;
+            margin: 8px auto;
+    
+            p{
+                text-align: left!important;
+                font-weight: 500;
+            }
+            input{
+                padding: 0px 20px;
+                color: black;
+                border: none;
+                border-bottom: 1px solid black;
+                background: transparent;
+                outline: none;
+                height: 35px;
+                width: 100%;
+                &:focus{
+                    border-bottom: 3px solid blue!important;
+                    outline: none;
+                }
+                &.ng-invalid{
+                    border-bottom: 3px solid #95a5a6;
+                }
+                &.ng-valid{
+                    border-bottom: 3px solid green!important;
+                }
+            }
+        }
+        .formBtn{
+            margin: 30px auto;
+            text-align: center;
+            button{
+                width: 80%;
+                border: 2px solid green;
+                color: black;
+                font-weight: 500;
+                outline: none;
+                background-color: transparent;
+                padding: 5px;
+                border-radius: 25px;
+                transition: .5s;
+                cursor: pointer;
+                &:hover{
+                    background-color: green;
+                    color: white;
+                }
+                &:disabled{
+                    cursor: not-allowed;
+                    opacity: .5;
+                    &:hover{
+                        background: none;
+                    }
+                }
+            }
+        }
+    }
+    
+    @keyframes fadeInDown{
+        0%{
+            transform: translateY(-30px);
+            opacity: 0;
+            -webkit-transform: translateY(-30px);
+            -moz-transform: translateY(-30px);
+            -ms-transform: translateY(-30px);
+            -o-transform: translateY(-30px);
+        }
+        100%{
+            transform: rotate(xx) translateY(0px);
+            opacity: 1;
+            -webkit-transform: rotate(xx) translateY(0px);
+            -moz-transform: rotate(xx) translateY(0px);
+            -ms-transform: rotate(xx) translateY(0px);
+            -o-transform: rotate(xx) translateY(0px);
+        }
+    }    
+}

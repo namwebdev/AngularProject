@@ -1,0 +1,111 @@
+.header{
+    font-size: 1.1rem;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    position: fixed;
+    top: 0;
+    background: #f8f9fa;
+    // z-index: -1;
+    box-shadow: 0 0 15px rgba(0,0,0,.3);
+    z-index: 2;
+    margin-bottom: 35px;
+    opacity: 0;
+    transition: .8s;
+    .header-bar{
+        button{
+            background: transparent;
+            border: none;
+            color: blue;
+            font-size: 20px;
+        }
+        ul{
+            margin: 50px 0;
+            li{
+                margin: 20px 0;
+                position: relative;
+                &::before{
+                    content: '';
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    display: block;
+                    width: 0;
+                    height: 100%;
+                    background: gray;
+                    z-index: -1;
+                    transition: .5s;
+                }
+                &:hover{
+                    &::before{
+                        width: 100%;
+                    }
+                    a{
+                        font-size: 35px;
+                    }
+                }
+                a{
+                    color: black;
+                    font-size: 30px;
+                    border-bottom: 1px solid rgba(0,0,0,1);
+                    display: block;
+                    padding-bottom: 10px;
+                }
+            }
+        }
+    }
+    .header-logo{
+        margin: 0!important;
+        vertical-align: center;
+        align-items: center;
+        img{
+            cursor: pointer;
+            position: absolute;
+            left: 5%;
+            top: 0;
+            border-radius: 50%;
+            width: 50px;
+            height: 40px;
+        }
+    }
+    .header-info {
+        width: 100%;
+        ul{
+            li{
+                margin: 0 20px;
+                &.user{
+                    color: #007ad9;
+                    cursor: pointer;
+                    .formDangNhap{
+                        h2{
+                            font-weight: 650;
+                            margin-bottom: 40px;
+                        }
+                        input{
+                            border: 0;
+                            background: none;
+                            display: block;
+                            margin: 20px auto;
+                            text-align: center;
+                            border: 2px solid #3498db;
+                            padding: 15px 10px;
+                            width: 200px;
+                            outline: none;
+                            border-radius: 25px;
+                            font-weight: 500;
+                            transition: .25s;
+                            &:focus{
+                                width: 300px;
+                                border-color: #2ecc71;
+                                padding: 25px;
+                            }
+                        }
+                    }
+                }
+            }
+        } 
+    }
+    &.scroll{
+        opacity: 1;
+    }
+}

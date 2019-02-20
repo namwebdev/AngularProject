@@ -1,0 +1,109 @@
+
+<header>
+  <div class="header d-flex">
+    <div class="header-bar">
+      <button pButton type="button" (click)="display = true"><i class="fas fa-bars"></i></button>
+      <p-sidebar [baseZIndex]="0" [(visible)]="display">
+        <ul>
+          <li><a href="#" id="movie-list" title="Lịch chiếu"><span>Lịch chiếu</span></a></li>
+          <li><a href="#" id="news" title="Tin tức">Tin tức<span style="float: right; margin-right: 20px;"><i
+                  class="fa fa-angle-right"></i></span></a></li>
+          <li><a href="#" data-scroll="notification" title="Thông báo">Thông báo<span style="float: right; margin-right: 20px;"><i
+                  class="fa fa-angle-right"></i></span></a></li>
+          <li><a href="#" id="contact" title="Liên hệ">Liên hệ<span style="float: right; margin-right: 20px;"><i
+                  class="fa fa-angle-right"></i></span></a></li>
+        </ul>
+      </p-sidebar>
+    </div>
+    <div class="header-logo">
+      <a routerLink="/trangchu"> <img src="https://www.pcgamesn.com/wp-content/uploads/legacy/legacy_of_the_void_archon_mode-590x334.jpg" alt=""></a>
+
+    </div>
+    <div class="header-info d-flex">
+      <ul class="ml-auto d-flex">
+        <li><a href=""><i class="fab fa-youtube"></i></a></li>
+        <li><a href=""><i class="fab fa-facebook"></i></a></li>
+        <li><a href=""><i class="fab fa-twitter"></i></a></li>
+        <li class="user">
+          <span (click)="showDialog()" *ngIf="!isLogin, else tenDangNhap"><i class="fas fa-user-circle"></i>Đăng nhập</span>
+          <ng-template #tenDangNhap>
+            Xin chào <b>{{tenTaiKhoan}}</b>
+          </ng-template>
+          <p-dialog header="ASDASDASD" [(visible)]="displayDN" [modal]="true" [responsive]="true" [style]="{width: '450px', minWidth: '200px'}"
+            [minY]="100" [maximizable]="true" [baseZIndex]="10000">
+            <h2 class="text-center">ĐĂNG NHẬP</h2>
+            <!-- form Đăng nhập -->
+            <form #formDN="ngForm" (ngSubmit)="DangNhap(formDN.value)" class="formDangNhap text-center">
+
+              <p-messages [(value)]="msgs"></p-messages>
+
+                <input type="text" name="TaiKhoan" class="form-control" placeholder="Tài khoản" ngModel>
+
+                <input type="password" name="MatKhau" id="" class="form-control" placeholder="Mật khẩu" ngModel>
+
+              <a routerLink="/dangky" (click)="displayDN=false">Chưa có tài khoản ? Đăng ký.</a><br>
+              <p-footer>
+                <button type="submit" class="btn btn-primary" label="" style="margin-right: 10px;"><i class="fas fa-sign-in-alt"></i> Đăng nhập</button>
+                <button (click)="displayDN=false" label="" class="btn btn-secondary"><i class="fas fa-times-circle"></i> Hủy</button>
+              </p-footer>
+            </form>
+            
+          </p-dialog>
+        </li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+
+
+<router-outlet></router-outlet>
+
+<footer class="contact">
+  <div class="footer-content">
+    <div class="footer-item">
+      <div class="item-title">
+        <img src="https://www.pcgamesn.com/wp-content/uploads/legacy/legacy_of_the_void_archon_mode-590x334.jpg" width="100px"
+          height="80px" alt="">
+        <span><b>Protoss Phim</b></span>
+      </div>
+      <ul>
+        <li><a href="#">Hỏi và đáp</a></li>
+        <li><a href="#">Chăm sóc khách hàng</a></li>
+      </ul>
+    </div>
+    <div class="footer-item">
+      <div class="item-title">
+
+      </div>
+      <ul>
+        <li><a href="#">Qui chế hoạt động</a></li>
+        <li><a href="#">Chính sách bảo mật</a></li>
+        <li><a href="#">Thỏa thuận sử dụng</a></li>
+      </ul>
+    </div>
+    <div class="footer-item">
+      <div class="item-title" style="font-size: 25px;">
+        <b>Ứng dụng di động</b>
+      </div>
+      <span class="icon"><i class="fab fa-android"></i></span>
+      <span class="icon"><i class="fab fa-apple"></i></span>
+    </div>
+    <div class="footer-item">
+      <div class="item-title text-center" style="font-size: 20px;">
+        <u>Thông tin:</u>
+      </div>
+      <ul class="text-left">
+        <li><span style="margin-right: 20px"><i class="fa fa-map-marker"></i></span>459 Sư Vạn Hạnh, Quận 10,
+          Tp.HCM</li>
+        <li><span style="margin-right: 20px"><i class="fa fa-phone"></i></span><b>(+84)</b>32 284 2351</li>
+        <li><span style="margin-right: 20px"><i class="fa fa-envelope"></i></span>webPhim@gmail.com</li>
+      </ul>
+    </div>
+
+  </div>
+  <hr style="margin: 0 auto; width: 50%; border: 1px solid black; margin-bottom: 10px">
+  <div class="footer-copyright">
+    COPYRIGHT ©WEBPHIM - ALL RIGHTS RESERVED.
+  </div>
+</footer>

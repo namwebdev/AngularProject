@@ -1,0 +1,58 @@
+<div class="signUp">
+  <div class="signUp-box">
+    <form #formDK="ngForm" (ngSubmit)="DangKy(formDK.value)">
+      <h2>đăng ký</h2>
+      <div class="alert alert-info text-center form-alert" role="alert" *ngIf="formDK.invalid, else dangKyThanhCong">
+        Vui lòng nhập đủ thông tin để đăng ký
+      </div>
+      <ng-template #dangKyThanhCong>
+        <div class="alert alert-success text-center form-alert" role="alert">
+          Nhấn nút đăng ký để tạo tài khoản
+        </div>
+      </ng-template>
+      <div class="form-group form-input">
+        <p for="">Tên tài khoản</p>
+        <input type="text" name="TaiKhoan" #taiKhoan="ngModel" required ngModel>
+      </div>
+      <div class="form-group form-input">
+        <p for="">Mật khẩu</p>
+        <input type="password" pPassword  name="MatKhau" #matKhau='ngModel's required ngModel
+        promptLabel="Nhập mật khẩu" weakLabel="Yếu" mediumLabel="Vừa" strongLabel="Mạnh" />
+      </div>
+      <div class="form-group form-input">
+        <p for="">Nhập lại mật khẩu</p>
+        <input [ngClass]="{'ng-invalid': reMatKhau.value != matKhau.value}" type="password" name="ReMatKhau" #reMatKhau='ngModel' required ngModel>
+        <div *ngIf="reMatKhau.dirty && reMatKhau.errors  || reMatKhau.value != matKhau.value">
+          <div *ngIf="kiemTraMatKhau(reMatKhau,matKhau)" class="alert alert-warning">
+            Hãy nhập lại chính xác mật khẩu
+          </div>
+        </div>
+      </div>
+      <div class=" form-group
+          form-input">
+        <p for="">Email</p>
+        <input type="text" name="Email" #email='ngModel' pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" required ngModel>
+        <!-- ALERT EMAIL -->
+        <div *ngIf="email.dirty && email.errors">
+          <div *ngIf="email.errors.pattern" class="alert alert-warning">
+            Email phải có định dạng <i>abcdef</i><b>@gmail.com</b>
+          </div>
+        </div>
+      </div>
+      <!-- <div class=" form-group form-input">
+        <p for="">Họ tên</p>
+        <input type="text" name="HoTen" #hoten='ngModel' id="" required placeholder="" ngModel>
+      </div> -->
+      <div class="form-group form-input">
+        <p for="">Số điện thoại</p>
+        <input type="number" name="SoDT" #sodt='ngModel' required ngModel>
+      </div>
+      <p-messages [(value)]="msgs"></p-messages>
+      <div class="formBtn">
+        <button [disabled]="formDK.invalid || formDK.submitted" type="submit">Đăng ký</button>
+      </div>
+    </form>
+  </div>
+</div>
+
+

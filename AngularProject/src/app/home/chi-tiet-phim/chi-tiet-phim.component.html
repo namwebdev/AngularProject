@@ -1,0 +1,33 @@
+<app-loading></app-loading>
+<div class="movie-details-main">
+  <div class="movie-content mt-5">
+    <div class="movie-details">
+      <div class="movie-img">
+        <img src="{{chiTietPhim.HinhAnh}}" alt="" img-fluid>
+      </div>
+      <div class="movie-info mt-2">
+        <h1>{{chiTietPhim.TenPhim}}</h1>
+        <h3>Nội dung:</h3>
+        <p>{{chiTietPhim.MoTa}}</p>
+        <div class="movie-button text-center mt-3">
+          <button>Đặt vé</button>
+        </div>
+  
+      </div>
+    </div>
+    <div class="movie-point text-center mt-5">
+      <div class="movie-circle-point">
+        <h1>{{chiTietPhim.DanhGia}}<i class="fa fa-star"></i></h1>
+      </div>
+  
+      <button>Đánh giá</button>
+    </div>
+  </div>
+  <div class="movie-book-ticket mt-3">
+    <p>Chọn ngày chiếu bạn muốn</p>
+
+      <button class="btn btn-primary mx-2 my-2"  *ngFor="let lichChieu of DSLichChieu"
+      [routerLink]="['/datve', lichChieu.MaLichChieu]">{{lichChieu.NgayChieuGioChieu}}</button>
+
+  </div>
+</div>

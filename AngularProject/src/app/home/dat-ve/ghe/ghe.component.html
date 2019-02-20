@@ -1,0 +1,8 @@
+<ng-container *ngIf="!ghe.DaDat, else btnDaDat">
+    <button (click)="DatGhe()" class="btn btn-outline-dark my-4" [ngClass]="{'gheDangDat': dangDat}">
+        {{ghe.TenGhe}}
+    </button>
+</ng-container>
+<ng-template #btnDaDat>
+    <button class="btn gheDaDat my-4" disabled>{{ghe.TenGhe}}</button>
+</ng-template>

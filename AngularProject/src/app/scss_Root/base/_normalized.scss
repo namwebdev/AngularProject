@@ -1,0 +1,46 @@
+.carousel-indicators>li{
+    border-radius: 50%!important;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
+    height: 10px!important;
+    width: 10px!important;
+    margin: 0 15px!important;
+}
+.carousel-control-next-icon{
+    margin-left: 80px;
+}
+.carousel-control-prev-icon{
+    margin-right: 80px;
+}
+
+.nav.nav-pills{
+    justify-content: center;
+    font-size: 1.5rem;
+    .nav-link{
+        &.active{
+            font-size: 2rem;
+            font-weight: 650;
+        }
+    }
+}
+
+.ui-widget-overlay {
+    background: #666666;
+    opacity: .3;
+    filter: Alpha(Opacity=50);
+    z-index: 1!important;
+}
+.ui-dialog-title{
+    text-align: center;
+    font-weight: bold;
+    font-size: 25px;
+    display:none!important;
+}
+body .ui-messages{
+    padding: .1px!important;
+}
+.ui-messages-icon{
+    padding: 3% 4px!important;
+}

@@ -1,0 +1,178 @@
+<app-loading></app-loading>
+
+<!-- CAUROUSEL -->
+<div id="carouselId" class="myCarousel carousel slide" data-ride="carousel">
+  <ol class="carousel-indicators">
+    <li data-target="#carouselId" data-slide-to="0" class="active"></li>
+    <li data-target="#carouselId" data-slide-to="1"></li>
+    <li data-target="#carouselId" data-slide-to="2"></li>
+  </ol>
+  <div class="carousel-inner" role="listbox">
+    <div class="carousel-item active">
+
+    </div>
+    <div class="carousel-item">
+
+    </div>
+    <div class="carousel-item">
+
+    </div>
+  </div>
+  <a class="carousel-control-prev" href="#carouselId" role="button" data-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselId" role="button" data-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+
+<!-- MOVIE-LIST -->
+<div class="movie-list">
+  <!-- Nav pills -->
+  <ul class="nav nav-pills" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-toggle="pill" href="#dangChieu">Đang chiếu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="pill" href="#sapChieu">Sắp chiếu</a>
+    </li>
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="dangChieu" class="container tab-pane active"><br>
+      <swiper class="swiper-container" [config]="config">
+        <div class="swiper-slide-1">
+          <div class="row">
+            <div class="movie-box col-md-3 text-center" *ngFor="let phim of DSPhimDangChieuTab1">
+              <img src="{{phim.HinhAnh}}" alt="" img-fluid />
+              <div class="silde-star">
+                <span class="point">{{phim.DanhGia}}</span><span><i class="fa fa-star"></i></span>
+              </div>
+              <div class="slide-hover">
+                <a class="movie-play" (click)="playTrailer()"><i class="far fa-play-circle"></i></a>
+                <!-- TRAILER -->
+                <p-dialog header="Title" [(visible)]="displayTrailer"  [responsive]="true" [style]="{width: '350px', minWidth: '200px'}" [minY]="70" 
+                [maximizable]="true">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/95ahbau-rJk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </p-dialog>
+                <!-- -->
+                <ng-template #trailer>
+                  <div class="modal-header">
+                    <h4 class="modal-title pull-left">Modal</h4>
+                    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    This is a modal.
+                  </div>
+                </ng-template>
+                <!-- -->
+                <button [routerLink]="['/chitietphim', phim.MaPhim]">Mua vé</button>
+              </div>
+              <div class="movie-title">
+                <h3>{{phim.TenPhim}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-slide-2">
+          <div class="row">
+            <div class="movie-box col-md-3 text-center" *ngFor="let phim of DSPhimDangChieuTab2">
+              <img src="{{phim.HinhAnh}}" alt="" img-fluid />
+              <div class="silde-star">
+                <span class="point">{{phim.DanhGia}}</span><span><i class="fa fa-star"></i></span>
+              </div>
+              <div class="slide-hover">
+                <span class="movie-play"><i class="far fa-play-circle"></i></span>
+                <button [routerLink]="['/chitietphim', phim.MaPhim]">Mua vé</button>
+              </div>
+              <div class="movie-title">
+                <h3>{{phim.TenPhim}}</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </swiper>
+    </div>
+    <div id="sapChieu" class="container tab-pane fade tabSapChieu"><br>
+      <div class="row">
+        <div class="movie-box col-md-3 text-center" *ngFor="let phim of DSPhimSapChieu">
+          <img src="{{phim.HinhAnh}}" alt="" img-fluid />
+          <div class="slide-hover">
+            <span class="movie-play"><i class="fa fa-play-circle"></i></span>
+          </div>
+          <div class="movie-title">
+            <h3>{{phim.TenPhim}}</h3>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+
+    <!-- <div class="swiper-button-prev"></div>
+      <div class="swiper-button-next"></div> -->
+
+
+  </div>
+
+  <!-- NEWS -->
+  <div class="news text-center myContainer" id="news">
+    <h1>TIN TỨC</h1>
+    <div class="news-content-big mt-5">
+      <div class="news-item">
+        <img src="../../../assets/img/news/avengers-4.jpg" alt="" img-fluid>
+        <h3>‘Thuyết âm mưu’ đằng sau sự xuất hiện của Captain Marvel trong Avengers 4</h3>
+        <p>Một loạt ảnh vừa được công bố đã cho trình làng bộ phim sắp được ra mắt của Marvel Studios, với nhân vật
+          chính là Carol Danvers (Captain Marvel) do Brie Larson thủ vai ...</p>
+        <div>
+          <span><i class="far fa-thumbs-up"></i></span><span>87</span>
+          <span><i class="far fa-comment"></i></span><span>12</span>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="../../../assets/img/news/venom-2.jpg" alt="" img-fluid>
+        <h3>Bom tấn ‘Venom’ vượt doanh thu ‘Wonder Woman’</h3>
+        <p>Thành tích phòng vé của “Venom” hiện đứng trên hầu hết bom tấn của đối thủ DCEU, và chỉ còn kém duy nhất
+          “Batman v Superman: Dawn of Justice” (2016) ...</p>
+        <div>
+          <span><i class="fa fa-thumbs-o-up"></i></span><span>87</span>
+          <span><i class="fa fa-comment-o"></i></span><span>12</span>
+        </div>
+      </div>
+      <div class="news-item">
+        <img src="../../../assets/img/news/aquaman-1.jpg" alt="" img-fluid>
+        <h3>"Aquaman" cán mốc 500 triệu USD toàn cầu</h3>
+        <p>Bom tấn "Aquaman" đã cán mốc 500 triệu USD toàn cầu. Mức doanh thu này vẫn đang trên đà tăng, vực dậy hình
+          ảnh của vũ trụ điện ảnh DC đang lép vế so với Marvel.</p>
+        <div>
+          <span><i class="fa fa-thumbs-o-up"></i></span><span>87</span>
+          <span><i class="fa fa-comment-o"></i></span><span>12</span>
+        </div>
+      </div>
+      <div class="news-item">
+        <div class="news-item-small d-flex my-auto">
+          <img src="../../../assets/img/news/bumblebee.jpg" alt="" img-fluid>
+          <div class="details">
+            <span><b>Cùng nghe chia sẻ của các sao 'Bumblebee' về câu chuyện hậu trường</b></span>
+          </div>
+        </div>
+        <div class="news-item-small d-flex my-auto">
+          <img src="../../../assets/img/news/infinity-war.jpg" alt="" img-fluid>
+          <div class="details">
+            <span><b>'Avengers: Infinity War' được tạp chí Empire chọn là phim hay nhất năm</b></span>
+          </div>
+        </div>
+        <div class="news-item-small d-flex my-auto">
+          <img src="../../../assets/img/news/captain-marvel.jpg" alt="" img-fluid>
+          <div class="details">
+            <span><b>“Captain Marvel” gây ấn tượng với tạo hình của Brie Larson trong trailer mới</b></span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>

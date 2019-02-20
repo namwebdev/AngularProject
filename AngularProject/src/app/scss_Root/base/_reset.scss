@@ -1,0 +1,21 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+:root{
+    --color: #007ad9;
+}
+body{
+    font-size: 18px;
+}
+.myContainer{
+    width: 85%;
+    margin: 0 auto;
+}
+li{
+    list-style: none;
+    a:hover{
+        text-decoration: none;
+    }
+}

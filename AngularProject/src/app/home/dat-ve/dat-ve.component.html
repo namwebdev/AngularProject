@@ -1,0 +1,36 @@
+<app-loading></app-loading>
+<div class="myContainer mt-5">
+  <div class="dsGhe">
+    <div class="dayGhe1">
+      <div class="row">
+        <app-ghe class="col-md-2" [ghe]='ghe' *ngFor="let ghe of DSGheDay1; let i = index;" (emitDangDat)="DatGheChinhThuc($event, ghe)">
+
+        </app-ghe>
+      </div>
+
+    </div>
+    <div class="dayGhe2">
+      <div class="row">
+        <app-ghe class="col-md-2" [ghe]='ghe' *ngFor="let ghe of DSGheDay2" (emitDangDat)="DatGheChinhThuc($event, ghe)">
+        </app-ghe>
+      </div>
+
+    </div>
+  </div>
+
+
+  <div class="dsGheDangDat">
+    <p>Bạn đã chọn ghế: </p>
+    <table class="table">
+      <tr>
+        <th>Tên ghế:</th>
+        <th>Giá:</th>
+      </tr>
+      <tr *ngFor="let gheDangDat of DSGheDangDat">
+        <td>{{gheDangDat.TenGhe}}</td>
+        <td>{{gheDangDat.GiaVe}}</td>
+      </tr>
+    </table>
+    <b>Tổng tiền: <span style="font-size: 35px; font-weight: normal;">{{tongTien}} VNĐ</span></b>
+  </div>
+</div>
